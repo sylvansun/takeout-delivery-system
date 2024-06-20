@@ -2,6 +2,7 @@ package com.sky.controller.admin;
 
 import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
+import com.sky.entity.Dish;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.DishService;
@@ -86,5 +87,17 @@ public class DishController {
     public Result startOrstop(@PathVariable Integer status, Long id){
         dishService.startOrstop(status, id);
         return Result.success();
+    }
+
+    /**
+     * query dish by categoryId
+     * @param categoryId
+     * @return
+     */
+    @GetMapping("/list")
+    @ApiOperation("query dish by categoryId")
+    public Result<List<Dish>>  list(Long categoryId){
+        List<Dish> list = dishService.list(categoryId);
+        return Result.success(list);
     }
 }
