@@ -164,15 +164,15 @@ public class DishServiceImpl implements DishService {
     public void startOrstop(Integer status, Long id) {
         Dish dish = Dish.builder().status(status).id(id).build();
         dishMapper.update(dish);
-        
+
         if(status.equals(StatusConstant.DISABLE)){
             List<Long> dishIds = new ArrayList<>();
             dishIds.add(id);
             List<Long> setmealIds = setmealDishMapper.getSetmealIdsByDishIds(dishIds);
             if(setmealIds != null && !setmealIds.isEmpty()){
                 for (Long setmealId : setmealIds) {
-                    Setmeal.builder().status(status).id(setmealId).build();
-                    setmealMapper.update(setmealId);
+                    Setmeal setmeal = Setmeal.builder().status(status).id(setmealId).build();
+                    setmealMapper.update(setmeal);
                 }
             }
         }

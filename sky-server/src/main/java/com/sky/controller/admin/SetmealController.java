@@ -63,7 +63,7 @@ public class SetmealController {
      */
     @GetMapping("/{id}")
     @ApiOperation("query setmeal by id")
-    public Result<SetmealVO> getById(@PathVariable Long id){
+    public Result<SetmealVO> getById(@PathVariable Long id) {
         SetmealVO setmealVO = setmealService.getByIdWithDish(id);
         return Result.success(setmealVO);
     }
@@ -75,7 +75,7 @@ public class SetmealController {
      */
     @PutMapping
     @ApiOperation("update setmeal")
-    public Result update(@RequestBody SetmealDTO setmealDTO){
+    public Result update(@RequestBody SetmealDTO setmealDTO) {
         setmealService.update(setmealDTO);
         return Result.success();
     }

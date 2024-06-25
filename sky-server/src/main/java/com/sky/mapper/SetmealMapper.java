@@ -22,7 +22,7 @@ public interface SetmealMapper {
     Integer countByCategoryId(Long id);
 
     @AutoFill(OperationType.UPDATE)
-    void update(Long setmealId);
+    void update(Setmeal setmeal);
 
     /**
      * create new setmeal
