@@ -2,7 +2,5 @@
 .idea
 *.iml
 *.class
-*Test.java
-**/test/
 .DS_Store
 /sky-server/src/main/resources/application-dev.yml
