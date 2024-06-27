@@ -43,7 +43,7 @@ brew services start nginx
 ```
 
 #### Connect to Database
-This project uses MySQL as the database. To install, run
+This project uses MySQL and Redis. To install MySQL, run
 ```shell
 brew install mysql
 # set password for mysql
@@ -62,6 +62,14 @@ In MySQL, run
 source ${your .sql file path}/sky.sql
 ```
 to load the database schema and data.
+
+To install Redis, run
+```shell
+brew install redis
+brew services start redis
+```
+Redis is installed without password by default.
+Then you have to set up your own configuration in file `application-dev.yml`.
 
 Then our project can be successfully deployed.
 
